@@ -1,0 +1,23 @@
+{
+  "name": "base",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "watch": "yarn build && lerna watch -- lerna run build --since",
+    "lint": "lerna run lint",
+    "test": "lerna run test",
+    "build": "lerna run build",
+    "clean": "lerna clean --yes && npx rimraf node_modules",
+    "check-all": "yarn lint && yarn test",
+    "publish": "yarn check-all && lerna exec --no-private -- yarn npm publish"
+  },
+  "packageManager": "yarn@3.5.1",
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
+  "dependencies": {
+    "lerna": "^7.1.0"
+  }
+}
