@@ -1,4 +1,4 @@
-import { ValidationsError } from '@nbottarini/validator'
+import { ValidationsError } from '@nbottarini/validator-errors'
 
 export function expectIsValidationError(e: Error) {
     if (!(e instanceof ValidationsError)) {

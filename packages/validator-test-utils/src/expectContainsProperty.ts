@@ -1,4 +1,4 @@
-import { ValidationsError } from '@nbottarini/validator'
+import { ValidationsError } from '@nbottarini/validator-errors'
 
 export function expectContainsProperty(validationError: ValidationsError, property: string) {
     if (!validationError.invalidProperties.contains(property)) {

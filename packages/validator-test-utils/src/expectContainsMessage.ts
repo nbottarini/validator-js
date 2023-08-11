@@ -1,4 +1,4 @@
-import { ValidationsError } from '@nbottarini/validator'
+import { ValidationsError } from '@nbottarini/validator-errors'
 
 export function expectContainsMessage(validationError: ValidationsError, property: string, message: string) {
     if (message && validationError.propertyErrors[property] !== message) {

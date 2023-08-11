@@ -1,4 +1,4 @@
-import { ValidationsError } from '@nbottarini/validator'
+import { ValidationsError } from '@nbottarini/validator-errors'
 import { expectContainsProperty } from './expectContainsProperty'
 import { expectIsValidationError } from './expectIsValidationError'
 import { expectContainsMessage } from './expectContainsMessage'

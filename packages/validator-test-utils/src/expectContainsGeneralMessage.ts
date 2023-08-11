@@ -1,4 +1,4 @@
-import { ValidationsError } from '@nbottarini/validator'
+import { ValidationsError } from '@nbottarini/validator-errors'
 
 export function expectContainsGeneralMessage(validationError: ValidationsError, message: string) {
     if (!validationError.generalErrorMessages.contains(message)) {
