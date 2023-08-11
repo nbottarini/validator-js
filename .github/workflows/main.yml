@@ -34,7 +34,18 @@ jobs:
         run: yarn install --immutable
       - name: Build
         run: yarn run build
-      - name: Publish to npm
-        run: yarn lerna exec -- yarn npm publish
+      - name: Publish validator-errors to npm
+        run: npm publish --access public
+        working-directory: packages/validator-errors
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Publish validator-test-utils to npm
+        run: npm publish --access public
+        working-directory: packages/validator-test-utils
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Publish validator to npm
+        run: npm publish --access public
+        working-directory: packages/validator
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
