@@ -65,7 +65,7 @@ describe('number', () => {
     })
 
     each([
-        'str', '', ' ', true, false, '12..12', '12.12.12',
+        'str', '', ' ', true, false, '12..12', '12.12.12', '12,2.3', '100,3',
     ]).test('invalid inputs %s', (input) => {
         validator.check('someProperty', input).number()
 
@@ -83,7 +83,7 @@ describe('integer', () => {
     })
 
     each([
-        '67.32', 132.50, 'str', '', ' ', true, false,
+        '67.32', 132.50, 'str', '', ' ', true, false, '12,2', '13.2,3',
     ]).test('invalid inputs %s', (input) => {
         validator.check('integer', input).integer()
 
