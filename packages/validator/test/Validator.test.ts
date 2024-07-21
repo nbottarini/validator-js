@@ -11,7 +11,7 @@ describe('notNull', () => {
     })
 
     each([
-        null,
+        null, undefined,
     ]).test('invalid inputs %s', (input) => {
         validator.check('someProperty', input).notNull()
 
@@ -29,7 +29,7 @@ describe('notNullOrEmpty', () => {
     })
 
     each([
-        '', null,
+        '', null, undefined,
     ]).test('invalid inputs %s', (input) => {
         validator.check('someProperty', input).notNullOrEmpty()
 
@@ -47,7 +47,7 @@ describe('notNullOrBlank', () => {
     })
 
     each([
-        '', '  ', null,
+        '', '  ', null, undefined,
     ]).test('invalid inputs %s', (input) => {
         validator.check('someProperty', input).notNullOrBlank()
 
@@ -65,7 +65,7 @@ describe('number', () => {
     })
 
     each([
-        'str', '', ' ', true, false, '12..12', '12.12.12', '12,2.3', '100,3',
+        'str', '', ' ', true, false, '12..12', '12.12.12', '12,2.3', '100,3', null, undefined,
     ]).test('invalid inputs %s', (input) => {
         validator.check('someProperty', input).number()
 
@@ -83,7 +83,7 @@ describe('integer', () => {
     })
 
     each([
-        '67.32', 132.50, 'str', '', ' ', true, false, '12,2', '13.2,3',
+        '67.32', 132.50, 'str', '', ' ', true, false, '12,2', '13.2,3', undefined, null,
     ]).test('invalid inputs %s', (input) => {
         validator.check('integer', input).integer()
 
@@ -101,7 +101,7 @@ describe('positive', () => {
     })
 
     each([
-        '0', 0, '000', '-5', '-23.32', -8, -466.23,
+        '0', 0, '000', '-5', '-23.32', -8, -466.23, null, undefined,
     ]).test('invalid inputs %s', (input) => {
         validator.check('someProperty', input).positive()
 
@@ -119,7 +119,7 @@ describe('zeroOrPositive', () => {
     })
 
     each([
-        '-5', '-23.32', -8, -466.23,
+        '-5', '-23.32', -8, -466.23, null, undefined,
     ]).test('invalid inputs %s', (input) => {
         validator.check('someProperty', input).zeroOrPositive()
 
@@ -151,7 +151,7 @@ describe('email', () => {
     })
 
     each([
-        'withoutAt', 'email@address', 'email@@address.com',
+        'withoutAt', 'email@address', 'email@@address.com', '', null, undefined,
     ]).test('invalid inputs %s', (input) => {
         validator.check('someProperty', input).email()
 
@@ -169,7 +169,7 @@ describe('minLength', () => {
     })
 
     each([
-        '', 'asdf', '1234',
+        '', 'asdf', '1234', null, undefined,
     ]).test('invalid inputs %s', (input) => {
         validator.check('someProperty', input).minLength(5)
 
@@ -179,7 +179,7 @@ describe('minLength', () => {
 
 describe('maxLength', () => {
     each([
-        '', 'asdf', '1234', '12345',
+        '', 'asdf', '1234', '12345', null, undefined,
     ]).test('valid inputs %s', (input) => {
         validator.check('someProperty', input).maxLength(5)
 
@@ -205,7 +205,7 @@ describe('date with DD/MM/YYYY format', () => {
     })
 
     each([
-        '', 'asdasd', '9//2020', '9/2020', '2020-06-12', '1/16/2020',
+        '', 'asdasd', '9//2020', '9/2020', '2020-06-12', '1/16/2020', null, undefined,
     ]).test('invalid inputs %s', (input) => {
         validator.check('someProperty', input).date('DD/MM/YYYY')
 
@@ -223,7 +223,7 @@ describe('date with YYYY-MM-DD format', () => {
     })
 
     each([
-        '', 'asdasd', '9--2020', '9-2020', '1-16-2020',
+        '', 'asdasd', '9--2020', '9-2020', '1-16-2020', null, undefined,
     ]).test('invalid inputs %s', (input) => {
         validator.check('someProperty', input).date('YYYY-MM-DD')
 

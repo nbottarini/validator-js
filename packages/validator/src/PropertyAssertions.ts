@@ -88,13 +88,13 @@ export class PropertyAssertions {
     }
 
     minLength(min: number, errorMessage?: string): PropertyAssertions {
-        const isValid = this.value.toString().length >= min
+        const isValid = (this.value?.toString()?.length ?? 0) >= min
         this.processValidation(isValid, errorMessage || (`${this.name} must have at lease ${min} characters`))
         return this
     }
 
     maxLength(max: number, errorMessage?: string): PropertyAssertions {
-        const isValid = this.value.toString().length <= max
+        const isValid = (this.value?.toString()?.length ?? 0) <= max
         this.processValidation(isValid, errorMessage || (`${this.name} must have less than ${max} characters`))
         return this
     }
